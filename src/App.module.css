@@ -121,7 +121,52 @@
 
 .dot { color: var(--t4); }
 
+/* ── Hamburger button (mobile only) ── */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  padding: 6px;
+  background: var(--bg-3);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: border-color .18s, background .18s;
+}
+
+.hamburger:hover {
+  border-color: var(--purple);
+  background: var(--purple-subtle);
+}
+
+.hLine {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: var(--t1);
+  border-radius: 2px;
+  transition: background .18s;
+}
+
+.hamburger:hover .hLine { background: var(--purple); }
+
+/* ── Mobile overlay backdrop ── */
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(2px);
+  z-index: 299;
+}
+
 @media (max-width: 768px) {
+  .hamburger { display: flex; }
+  .overlay   { display: block; }
   .main    { padding: 1rem; }
   .topbar  { padding: .75rem 1rem; }
   .footer  { flex-wrap: wrap; gap: .4rem; }

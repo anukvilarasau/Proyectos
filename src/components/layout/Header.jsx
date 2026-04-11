@@ -13,7 +13,7 @@ const BOTTOM_ITEMS = [
   { id: 'settings', label: 'Configuración', icon: '⚙' },
 ];
 
-export default function Sidebar({ activeTab, onTabChange, faultCount }) {
+export default function Sidebar({ activeTab, onTabChange, faultCount, mobileOpen, onMobileClose }) {
   const [clock, setClock] = useState('');
   const [collapsed, setCollapsed] = useState(false);
 
@@ -25,7 +25,11 @@ export default function Sidebar({ activeTab, onTabChange, faultCount }) {
   }, []);
 
   return (
-    <aside className={`${styles.sidebar} ${collapsed ? styles.collapsed : ''}`}>
+    <aside className={[
+      styles.sidebar,
+      collapsed   ? styles.collapsed   : '',
+      mobileOpen  ? styles.mobileOpen  : '',
+    ].join(' ')}>
 
       {/* Logo */}
       <div className={styles.logo}>
@@ -36,8 +40,13 @@ export default function Sidebar({ activeTab, onTabChange, faultCount }) {
             <span className={styles.logoSub}>Control Center</span>
           </div>
         )}
-        <button className={styles.collapseBtn} onClick={() => setCollapsed(c => !c)} title="Colapsar">
+        {/* Desktop collapse btn */}
+        <button className={`${styles.collapseBtn} ${styles.desktopOnly}`} onClick={() => setCollapsed(c => !c)} title="Colapsar">
           {collapsed ? '›' : '‹'}
+        </button>
+        {/* Mobile close btn */}
+        <button className={`${styles.collapseBtn} ${styles.mobileOnly}`} onClick={onMobileClose} title="Cerrar">
+          ✕
         </button>
       </div>
 

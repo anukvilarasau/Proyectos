@@ -19,20 +19,43 @@ const PAGE_TITLES = {
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('overview');
+  const [mobileOpen, setMobileOpen] = useState(false);
   const { kpis, charts, tiles, faults, faultCount, alerts, clearAlerts } = useRealtime(3000);
+
+  const handleTabChange = (tab) => {
+    setActiveTab(tab);
+    setMobileOpen(false);
+  };
 
   return (
     <div className={styles.layout}>
+      {/* Overlay backdrop for mobile */}
+      {mobileOpen && (
+        <div className={styles.overlay} onClick={() => setMobileOpen(false)} />
+      )}
+
       <Sidebar
         activeTab={activeTab}
-        onTabChange={setActiveTab}
+        onTabChange={handleTabChange}
         faultCount={faultCount}
+        mobileOpen={mobileOpen}
+        onMobileClose={() => setMobileOpen(false)}
       />
 
       <div className={styles.content}>
         {/* Top bar */}
         <div className={styles.topbar}>
           <div className={styles.topbarLeft}>
+            {/* Hamburger — only visible on mobile */}
+            <button
+              className={styles.hamburger}
+              onClick={() => setMobileOpen(o => !o)}
+              aria-label="Abrir menú"
+            >
+              <span className={styles.hLine} />
+              <span className={styles.hLine} />
+              <span className={styles.hLine} />
+            </button>
             <h1 className={styles.pageTitle}>
               StepIQ <span className={styles.pageTitleSub}>{PAGE_TITLES[activeTab]}</span>
             </h1>
