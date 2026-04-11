@@ -1,6 +1,5 @@
 .root { display: flex; flex-direction: column; gap: 1.25rem; animation: fade-up .35s ease; }
 
-/* ── Count strip ── */
 .countStrip {
   display: flex;
   background: var(--bg-2);
@@ -34,11 +33,9 @@
 
 .countDivider { width: 1px; height: 44px; background: var(--border); align-self: center; flex-shrink: 0; }
 
-/* ── Layout ── */
 .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 .chartWrap { position: relative; height: 320px; }
 
-/* ── Feed ── */
 .feed {
   display: flex;
   flex-direction: column;
@@ -65,9 +62,9 @@
   font-size: .78rem;
 }
 
-.alertItem.critical { background: rgba(255,61,107,.08); border-color: rgba(255,61,107,.2); }
-.alertItem.warning  { background: rgba(245,197,0,.07);  border-color: rgba(245,197,0,.2); }
-.alertItem.info     { background: rgba(0,255,135,.05);  border-color: rgba(0,255,135,.15); }
+.alertItem.critical { background: rgba(255,61,107,.07);  border-color: rgba(255,61,107,.18); }
+.alertItem.warning  { background: rgba(255,214,0,.07);   border-color: rgba(255,214,0,.18); }
+.alertItem.info     { background: rgba(124,79,255,.06);  border-color: rgba(124,79,255,.15); }
 
 .alertIcon { font-size: .75rem; flex-shrink: 0; margin-top: .1rem; }
 
@@ -76,8 +73,8 @@
 .alertTime { font-family: var(--font-mono); font-size: .65rem; color: var(--t3); }
 
 .clearBtn {
-  background: rgba(255,61,107,.12);
-  border: 1px solid rgba(255,61,107,.25);
+  background: rgba(255,61,107,.10);
+  border: 1px solid rgba(255,61,107,.22);
   color: var(--red);
   padding: .25rem .65rem;
   border-radius: 7px;
@@ -85,9 +82,8 @@
   cursor: pointer;
   transition: background .18s;
 }
-.clearBtn:hover { background: rgba(255,61,107,.22); }
+.clearBtn:hover { background: rgba(255,61,107,.20); }
 
-/* ── Thresholds ── */
 .threshGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -102,13 +98,12 @@
   display: flex;
   flex-direction: column;
   gap: .45rem;
+  transition: border-color .2s;
 }
 
-.threshHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+.threshold:hover { border-color: rgba(124,79,255,.25); }
+
+.threshHeader { display: flex; justify-content: space-between; align-items: center; }
 
 .threshLabel {
   font-size: .7rem;
@@ -128,7 +123,7 @@
   height: 4px;
   -webkit-appearance: none;
   appearance: none;
-  background: var(--track-color, rgba(0,255,135,.15));
+  background: var(--track-color, rgba(124,79,255,.18));
   border-radius: 99px;
   outline: none;
   cursor: pointer;
@@ -140,8 +135,8 @@
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background: var(--thumb-color, var(--neon));
-  box-shadow: 0 0 6px var(--thumb-color, var(--neon));
+  background: var(--thumb-color, var(--purple));
+  box-shadow: 0 0 6px var(--thumb-color, var(--purple));
   cursor: pointer;
 }
 

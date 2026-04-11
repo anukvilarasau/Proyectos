@@ -1,16 +1,21 @@
 import { useState, useEffect } from 'react';
 import styles from './Header.module.css';
 
-const TABS = [
-  { id: 'overview',   label: 'Overview',         icon: '◈' },
-  { id: 'tilemap',    label: 'Mapa de Baldosas',  icon: '⊞' },
-  { id: 'faults',     label: 'Fallas',            icon: '⚡' },
-  { id: 'production', label: 'Producción',         icon: '◉' },
-  { id: 'alerts',     label: 'Alertas',            icon: '◎' },
+const NAV_ITEMS = [
+  { id: 'overview',    label: 'Dashboard',        icon: '⊞' },
+  { id: 'tilemap',     label: 'Mapa Baldosas',     icon: '◫' },
+  { id: 'faults',      label: 'Fallas',            icon: '⚡' },
+  { id: 'production',  label: 'Producción',         icon: '◉' },
+  { id: 'alerts',      label: 'Alertas',            icon: '◎', badge: true },
 ];
 
-export default function Header({ activeTab, onTabChange, faultCount }) {
+const BOTTOM_ITEMS = [
+  { id: 'settings', label: 'Configuración', icon: '⚙' },
+];
+
+export default function Sidebar({ activeTab, onTabChange, faultCount }) {
   const [clock, setClock] = useState('');
+  const [collapsed, setCollapsed] = useState(false);
 
   useEffect(() => {
     const update = () => setClock(new Date().toLocaleTimeString('es-AR'));
@@ -20,41 +25,75 @@ export default function Header({ activeTab, onTabChange, faultCount }) {
   }, []);
 
   return (
-    <header className={styles.header}>
+    <aside className={`${styles.sidebar} ${collapsed ? styles.collapsed : ''}`}>
+
       {/* Logo */}
       <div className={styles.logo}>
         <div className={styles.logoIcon}>S</div>
-        <span className={styles.logoText}>
-          Step<span className={styles.logoAccent}>IQ</span>
-        </span>
-        <span className={styles.logoBadge}>v2.0</span>
+        {!collapsed && (
+          <div className={styles.logoText}>
+            <span className={styles.logoName}>StepIQ</span>
+            <span className={styles.logoSub}>Control Center</span>
+          </div>
+        )}
+        <button className={styles.collapseBtn} onClick={() => setCollapsed(c => !c)} title="Colapsar">
+          {collapsed ? '›' : '‹'}
+        </button>
       </div>
 
-      {/* Nav tabs */}
+      {/* Nav divider label */}
+      {!collapsed && <div className={styles.navLabel}>MENÚ</div>}
+
+      {/* Main navigation */}
       <nav className={styles.nav}>
-        {TABS.map(tab => (
+        {NAV_ITEMS.map(item => (
           <button
-            key={tab.id}
-            className={`${styles.tab} ${activeTab === tab.id ? styles.tabActive : ''}`}
-            onClick={() => onTabChange(tab.id)}
+            key={item.id}
+            className={`${styles.navItem} ${activeTab === item.id ? styles.active : ''}`}
+            onClick={() => onTabChange(item.id)}
+            title={collapsed ? item.label : undefined}
           >
-            <span className={styles.tabIcon}>{tab.icon}</span>
-            {tab.label}
-            {tab.id === 'faults' && faultCount > 0 && (
-              <span className={styles.faultBubble}>{faultCount}</span>
+            <span className={styles.navIcon}>{item.icon}</span>
+            {!collapsed && <span className={styles.navLabel2}>{item.label}</span>}
+            {!collapsed && item.badge && faultCount > 0 && (
+              <span className={styles.navBadge}>{faultCount}</span>
+            )}
+            {collapsed && item.badge && faultCount > 0 && (
+              <span className={styles.navDot} />
             )}
           </button>
         ))}
       </nav>
 
-      {/* Status */}
-      <div className={styles.status}>
-        <div className={styles.statusGroup}>
-          <span className={styles.pulseDot} />
-          <span className={styles.statusText}>EN LÍNEA</span>
+      {/* Spacer */}
+      <div className={styles.spacer} />
+
+      {/* Status indicator */}
+      {!collapsed && (
+        <div className={styles.statusBox}>
+          <div className={styles.statusRow}>
+            <span className={styles.pulseDot} />
+            <span className={styles.statusText}>Sistema Activo</span>
+          </div>
+          <span className={styles.clock}>{clock}</span>
         </div>
-        <span className={styles.clock}>{clock}</span>
+      )}
+
+      {/* Bottom nav */}
+      <div className={styles.bottomNav}>
+        {BOTTOM_ITEMS.map(item => (
+          <button
+            key={item.id}
+            className={`${styles.navItem} ${activeTab === item.id ? styles.active : ''}`}
+            onClick={() => onTabChange(item.id)}
+            title={collapsed ? item.label : undefined}
+          >
+            <span className={styles.navIcon}>{item.icon}</span>
+            {!collapsed && <span className={styles.navLabel2}>{item.label}</span>}
+          </button>
+        ))}
       </div>
-    </header>
+
+    </aside>
   );
 }

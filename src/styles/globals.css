@@ -1,52 +1,56 @@
 /* ═══════════════════════════════════════
    STEPIQ — GLOBAL STYLES & DESIGN TOKENS
+   Theme: Dark Navy + Purple + Neon Green
 ═══════════════════════════════════════ */
 
 :root {
-  /* Backgrounds */
-  --bg-0: #020c06;
-  --bg-1: #041009;
-  --bg-2: #06140b;
-  --bg-3: #091b0f;
-  --bg-4: #0d2416;
+  /* ── Backgrounds (dark navy/indigo) ── */
+  --bg-0: #07071a;
+  --bg-1: #0c0c22;
+  --bg-2: #10102c;
+  --bg-3: #141438;
+  --bg-4: #1a1a48;
 
-  /* Primary Neon Green */
-  --neon:      #00ff87;
-  --neon-dim:  #00cc6a;
-  --neon-glow: rgba(0, 255, 135, 0.25);
-  --neon-subtle: rgba(0, 255, 135, 0.08);
+  /* ── Primary accent: Purple/Violet ── */
+  --purple:        #7c4fff;
+  --purple-dim:    #6035dd;
+  --purple-glow:   rgba(124, 79, 255, 0.22);
+  --purple-subtle: rgba(124, 79, 255, 0.09);
 
-  /* Accent colors */
-  --teal:   #00ffc8;
-  --lime:   #aaff3e;
-  --cyan:   #00e5ff;
+  /* ── Data color: Neon Green (charts only) ── */
+  --neon:        #00ff80;
+  --neon-dim:    #00cc65;
+  --neon-glow:   rgba(0, 255, 128, 0.20);
+  --neon-subtle: rgba(0, 255, 128, 0.07);
 
-  /* Status */
+  /* ── Status / secondary accents ── */
+  --yellow: #ffd600;
+  --amber:  #ffd600;
+  --cyan:   #00cfff;
   --red:    #ff3d6b;
-  --amber:  #f5c500;
-  --purple: #bf64ff;
-  --blue:   #4d9fff;
+  --teal:   #00e5b3;
+  --lime:   #aaff3e;
 
-  /* Text */
-  --t0: #eafff4;
-  --t1: #b4f5d4;
-  --t2: #66bf90;
-  --t3: #3a7058;
-  --t4: #1f4030;
+  /* ── Text scale ── */
+  --t0: #ffffff;
+  --t1: #c8c8e8;
+  --t2: #8080aa;
+  --t3: #505070;
+  --t4: #2a2a44;
 
-  /* Borders */
-  --border:        rgba(0, 255, 135, 0.10);
-  --border-bright: rgba(0, 255, 135, 0.28);
+  /* ── Borders ── */
+  --border:        rgba(255, 255, 255, 0.07);
+  --border-bright: rgba(124, 79, 255, 0.40);
 
-  /* Typography */
+  /* ── Typography ── */
   --font-sans: 'Inter', system-ui, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 
-  /* Shadows / Glows */
-  --glow-neon:  0 0 24px rgba(0, 255, 135, 0.30);
-  --glow-teal:  0 0 24px rgba(0, 255, 200, 0.25);
-  --glow-red:   0 0 20px rgba(255, 61, 107, 0.30);
-  --glow-amber: 0 0 20px rgba(245, 197, 0, 0.25);
+  /* ── Shadows / Glows ── */
+  --glow-purple: 0 0 24px rgba(124, 79, 255, 0.30);
+  --glow-neon:   0 0 24px rgba(0,  255, 128, 0.25);
+  --glow-red:    0 0 20px rgba(255, 61, 107, 0.30);
+  --glow-yellow: 0 0 20px rgba(255, 214,  0, 0.25);
 }
 
 *, *::before, *::after {
@@ -68,7 +72,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Scan-line CRT overlay */
+/* Subtle scan-line overlay */
 body::before {
   content: '';
   position: fixed;
@@ -77,23 +81,24 @@ body::before {
     0deg,
     transparent,
     transparent 3px,
-    rgba(0, 255, 135, 0.012) 3px,
-    rgba(0, 255, 135, 0.012) 4px
+    rgba(124, 79, 255, 0.012) 3px,
+    rgba(124, 79, 255, 0.012) 4px
   );
   pointer-events: none;
   z-index: 9999;
 }
 
-/* Corner grid decoration (top-right) */
+/* Top-right ambient glow */
 body::after {
   content: '';
   position: fixed;
   top: 0; right: 0;
-  width: 320px; height: 320px;
-  background:
-    radial-gradient(ellipse at top right,
-      rgba(0, 255, 135, 0.06) 0%,
-      transparent 65%);
+  width: 400px; height: 400px;
+  background: radial-gradient(
+    ellipse at top right,
+    rgba(124, 79, 255, 0.07) 0%,
+    transparent 65%
+  );
   pointer-events: none;
   z-index: 0;
 }
@@ -103,19 +108,10 @@ body::after {
 ::-webkit-scrollbar-thumb    { background: var(--t4); border-radius: 99px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--t3); }
 
-/* ── Utility classes ── */
-.mono { font-family: var(--font-mono); }
-.text-neon  { color: var(--neon); }
-.text-teal  { color: var(--teal); }
-.text-lime  { color: var(--lime); }
-.text-red   { color: var(--red); }
-.text-amber { color: var(--amber); }
-.text-muted { color: var(--t3); }
-
 /* ── Global animations ── */
 @keyframes pulse-dot {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(0,255,135,.6); }
-  50%       { box-shadow: 0 0 0 7px rgba(0,255,135,0); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0,255,128,.5); }
+  50%       { box-shadow: 0 0 0 7px rgba(0,255,128,0); }
 }
 @keyframes blink-fault {
   0%, 100% { opacity: 1; }

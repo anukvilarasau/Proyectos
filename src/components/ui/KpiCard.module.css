@@ -1,16 +1,17 @@
 .card {
   position: relative;
-  background: var(--bg-3);
+  background: var(--bg-2);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: 14px;
   overflow: hidden;
-  transition: transform .2s, box-shadow .2s;
+  transition: transform .2s, box-shadow .2s, border-color .2s;
   cursor: default;
   animation: fade-up .4s ease both;
 }
 
 .card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-3px);
+  border-color: rgba(124,79,255,.25);
 }
 
 /* Top accent bar */
@@ -21,19 +22,17 @@
   border-radius: 2px 2px 0 0;
 }
 
+.purple .topBar { background: linear-gradient(90deg, transparent, var(--purple)); }
 .neon   .topBar { background: linear-gradient(90deg, transparent, var(--neon)); }
 .teal   .topBar { background: linear-gradient(90deg, transparent, var(--teal)); }
 .lime   .topBar { background: linear-gradient(90deg, transparent, var(--lime)); }
 .red    .topBar { background: linear-gradient(90deg, transparent, var(--red)); }
-.amber  .topBar { background: linear-gradient(90deg, transparent, var(--amber)); }
-.purple .topBar { background: linear-gradient(90deg, transparent, var(--purple)); }
+.amber  .topBar { background: linear-gradient(90deg, transparent, var(--yellow)); }
 
-.neon:hover   { box-shadow: 0 4px 24px rgba(0,255,135,.18); }
-.teal:hover   { box-shadow: 0 4px 24px rgba(0,255,200,.15); }
-.lime:hover   { box-shadow: 0 4px 24px rgba(170,255,62,.15); }
-.red:hover    { box-shadow: 0 4px 24px rgba(255,61,107,.18); }
-.amber:hover  { box-shadow: 0 4px 24px rgba(245,197,0,.15); }
-.purple:hover { box-shadow: 0 4px 24px rgba(191,100,255,.15); }
+.card:hover { box-shadow: 0 6px 28px rgba(124,79,255,.12); }
+.neon:hover { box-shadow: 0 6px 28px rgba(0,255,128,.10); }
+.red:hover  { box-shadow: 0 6px 28px rgba(255,61,107,.12); }
+.amber:hover{ box-shadow: 0 6px 28px rgba(255,214,0,.10); }
 
 .body {
   padding: 1.1rem 1.1rem .75rem;
@@ -51,18 +50,18 @@
 
 .value {
   font-family: var(--font-mono);
-  font-size: 1.8rem;
+  font-size: 1.75rem;
   font-weight: 600;
   line-height: 1;
   margin-bottom: .3rem;
 }
 
+.purple .value { color: var(--purple); }
 .neon   .value { color: var(--neon); }
 .teal   .value { color: var(--teal); }
 .lime   .value { color: var(--lime); }
 .red    .value { color: var(--red); }
-.amber  .value { color: var(--amber); }
-.purple .value { color: var(--purple); }
+.amber  .value { color: var(--yellow); }
 
 .delta { font-size: .69rem; margin-bottom: .4rem; }
 .up   { color: var(--neon); }
@@ -72,7 +71,7 @@
   display: block;
   width: 100%;
   height: 30px;
-  opacity: .8;
+  opacity: .75;
 }
 
 .iconBg {
@@ -80,7 +79,7 @@
   bottom: .5rem;
   right: .75rem;
   font-size: 2rem;
-  opacity: .06;
+  opacity: .05;
   pointer-events: none;
   line-height: 1;
 }

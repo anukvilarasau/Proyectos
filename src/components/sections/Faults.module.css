@@ -1,10 +1,8 @@
 .root { display: flex; flex-direction: column; gap: 1.25rem; animation: fade-up .35s ease; }
 
-/* ── Summary ── */
 .summary {
   display: flex;
   align-items: center;
-  gap: 0;
   background: var(--bg-2);
   border: 1px solid var(--border);
   border-radius: 12px;
@@ -28,7 +26,7 @@
 }
 
 .summaryLabel {
-  font-size: .68rem;
+  font-size: .67rem;
   text-transform: uppercase;
   letter-spacing: .1em;
   color: var(--t3);
@@ -41,10 +39,8 @@
   flex-shrink: 0;
 }
 
-/* ── Layout ── */
 .row2 { display: grid; grid-template-columns: 1.4fr 1fr; gap: 1rem; }
 
-/* ── Table ── */
 .tableWrap { overflow-x: auto; max-height: 320px; overflow-y: auto; }
 
 .table {
@@ -68,14 +64,14 @@
 
 .table td {
   padding: .5rem .7rem;
-  border-bottom: 1px solid rgba(0,255,135,.04);
+  border-bottom: 1px solid rgba(255,255,255,.04);
   color: var(--t1);
   vertical-align: middle;
 }
 
-.table tr:hover td { background: rgba(0,255,135,.03); }
+.table tr:hover td { background: rgba(124,79,255,.04); }
 
-.tdMono { font-family: var(--font-mono); color: var(--neon) !important; font-size: .75rem; }
+.tdMono  { font-family: var(--font-mono); color: var(--purple) !important; font-size: .75rem; }
 .tdMuted { color: var(--t3) !important; }
 
 .empty {
@@ -85,18 +81,16 @@
   font-size: .85rem;
 }
 
-/* ── Charts ── */
 .chartWrap { position: relative; height: 240px; }
 
-/* ── Predictive ── */
 .predictList { display: flex; flex-direction: column; gap: .85rem; }
 
 .predictNote {
   margin-top: .5rem;
   font-size: .69rem;
-  color: var(--amber);
-  background: rgba(245,197,0,.07);
-  border: 1px solid rgba(245,197,0,.15);
+  color: var(--yellow);
+  background: rgba(255,214,0,.06);
+  border: 1px solid rgba(255,214,0,.14);
   border-radius: 7px;
   padding: .45rem .7rem;
 }

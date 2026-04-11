@@ -10,16 +10,16 @@
 .label { color: var(--t2); }
 
 .value { font-family: var(--font-mono); font-weight: 600; }
+.value.purple { color: var(--purple); }
 .value.neon   { color: var(--neon); }
 .value.teal   { color: var(--teal); }
 .value.lime   { color: var(--lime); }
 .value.red    { color: var(--red); }
-.value.amber  { color: var(--amber); }
-.value.purple { color: var(--purple); }
+.value.amber  { color: var(--yellow); }
 
 .track {
   height: 6px;
-  background: rgba(255,255,255,.05);
+  background: rgba(255,255,255,.06);
   border-radius: 99px;
   overflow: hidden;
 }
@@ -30,9 +30,9 @@
   transition: width 1s cubic-bezier(.4,0,.2,1);
 }
 
-.fill.neon   { background: linear-gradient(90deg, var(--neon-dim), var(--neon)); box-shadow: 0 0 8px rgba(0,255,135,.4); }
-.fill.teal   { background: linear-gradient(90deg, #00cc9f, var(--teal)); }
+.fill.purple { background: linear-gradient(90deg, var(--purple-dim), var(--purple)); box-shadow: 0 0 8px rgba(124,79,255,.4); }
+.fill.neon   { background: linear-gradient(90deg, var(--neon-dim), var(--neon)); box-shadow: 0 0 8px rgba(0,255,128,.3); }
+.fill.teal   { background: linear-gradient(90deg, #00aa88, var(--teal)); }
 .fill.lime   { background: linear-gradient(90deg, #88dd22, var(--lime)); }
 .fill.red    { background: linear-gradient(90deg, #cc2248, var(--red)); }
-.fill.amber  { background: linear-gradient(90deg, #cc9900, var(--amber)); }
-.fill.purple { background: linear-gradient(90deg, #9940cc, var(--purple)); }
+.fill.amber  { background: linear-gradient(90deg, #cc9900, var(--yellow)); }
