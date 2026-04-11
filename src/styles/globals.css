@@ -1,0 +1,134 @@
+/* ═══════════════════════════════════════
+   STEPIQ — GLOBAL STYLES & DESIGN TOKENS
+═══════════════════════════════════════ */
+
+:root {
+  /* Backgrounds */
+  --bg-0: #020c06;
+  --bg-1: #041009;
+  --bg-2: #06140b;
+  --bg-3: #091b0f;
+  --bg-4: #0d2416;
+
+  /* Primary Neon Green */
+  --neon:      #00ff87;
+  --neon-dim:  #00cc6a;
+  --neon-glow: rgba(0, 255, 135, 0.25);
+  --neon-subtle: rgba(0, 255, 135, 0.08);
+
+  /* Accent colors */
+  --teal:   #00ffc8;
+  --lime:   #aaff3e;
+  --cyan:   #00e5ff;
+
+  /* Status */
+  --red:    #ff3d6b;
+  --amber:  #f5c500;
+  --purple: #bf64ff;
+  --blue:   #4d9fff;
+
+  /* Text */
+  --t0: #eafff4;
+  --t1: #b4f5d4;
+  --t2: #66bf90;
+  --t3: #3a7058;
+  --t4: #1f4030;
+
+  /* Borders */
+  --border:        rgba(0, 255, 135, 0.10);
+  --border-bright: rgba(0, 255, 135, 0.28);
+
+  /* Typography */
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Shadows / Glows */
+  --glow-neon:  0 0 24px rgba(0, 255, 135, 0.30);
+  --glow-teal:  0 0 24px rgba(0, 255, 200, 0.25);
+  --glow-red:   0 0 20px rgba(255, 61, 107, 0.30);
+  --glow-amber: 0 0 20px rgba(245, 197, 0, 0.25);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg-0);
+  color: var(--t1);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.5;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scan-line CRT overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    rgba(0, 255, 135, 0.012) 3px,
+    rgba(0, 255, 135, 0.012) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Corner grid decoration (top-right) */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0; right: 0;
+  width: 320px; height: 320px;
+  background:
+    radial-gradient(ellipse at top right,
+      rgba(0, 255, 135, 0.06) 0%,
+      transparent 65%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+::-webkit-scrollbar          { width: 5px; height: 5px; }
+::-webkit-scrollbar-track    { background: transparent; }
+::-webkit-scrollbar-thumb    { background: var(--t4); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: var(--t3); }
+
+/* ── Utility classes ── */
+.mono { font-family: var(--font-mono); }
+.text-neon  { color: var(--neon); }
+.text-teal  { color: var(--teal); }
+.text-lime  { color: var(--lime); }
+.text-red   { color: var(--red); }
+.text-amber { color: var(--amber); }
+.text-muted { color: var(--t3); }
+
+/* ── Global animations ── */
+@keyframes pulse-dot {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0,255,135,.6); }
+  50%       { box-shadow: 0 0 0 7px rgba(0,255,135,0); }
+}
+@keyframes blink-fault {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: .3; }
+}
+@keyframes slide-in-left {
+  from { opacity: 0; transform: translateX(-16px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

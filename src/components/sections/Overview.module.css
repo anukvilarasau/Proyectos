@@ -1,0 +1,28 @@
+.root { display: flex; flex-direction: column; gap: 1.25rem; animation: fade-up .35s ease; }
+
+.kpiGrid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+}
+
+.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.row3 { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 1rem; }
+
+.chartWrap { position: relative; height: 200px; }
+.donutWrap { position: relative; height: 220px; }
+
+.oeeList {
+  display: flex;
+  flex-direction: column;
+  gap: .9rem;
+  padding-top: .25rem;
+}
+
+@media (max-width: 1200px) {
+  .kpiGrid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 900px) {
+  .kpiGrid { grid-template-columns: repeat(2, 1fr); }
+  .row2, .row3 { grid-template-columns: 1fr; }
+}

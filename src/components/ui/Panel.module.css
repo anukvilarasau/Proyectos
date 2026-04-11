@@ -1,0 +1,44 @@
+.panel {
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .7rem 1.1rem;
+  border-bottom: 1px solid var(--border);
+  background: rgba(0, 255, 135, 0.02);
+  flex-shrink: 0;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: .69rem;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--neon-dim);
+}
+
+.icon {
+  opacity: .75;
+  font-size: .85rem;
+}
+
+.right {
+  font-size: .72rem;
+  color: var(--t3);
+}
+
+.body {
+  padding: 1.1rem;
+  flex: 1;
+}

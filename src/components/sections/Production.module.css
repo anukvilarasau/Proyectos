@@ -1,0 +1,61 @@
+.root { display: flex; flex-direction: column; gap: 1.25rem; animation: fade-up .35s ease; }
+
+/* ── Line cards ── */
+.lineCards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.lineCard {
+  background: var(--bg-3);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.1rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: .4rem;
+}
+
+.lineName {
+  font-size: .7rem;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--t3);
+}
+
+.lineVal {
+  font-family: var(--font-mono);
+  font-size: 1.65rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.linePct {
+  font-size: .75rem;
+  font-family: var(--font-mono);
+}
+
+.lineBar {
+  height: 4px;
+  background: rgba(255,255,255,.06);
+  border-radius: 99px;
+  overflow: hidden;
+  margin-top: .2rem;
+}
+
+.lineBarFill {
+  height: 100%;
+  border-radius: 99px;
+  transition: width .8s cubic-bezier(.4,0,.2,1);
+}
+
+/* ── Charts ── */
+.row2 { display: grid; grid-template-columns: 1.4fr 1fr; gap: 1rem; }
+.chartWrap { position: relative; height: 280px; }
+.chartTallWrap { position: relative; height: 160px; }
+
+@media (max-width: 900px) {
+  .lineCards { grid-template-columns: 1fr; }
+  .row2      { grid-template-columns: 1fr; }
+}
