@@ -88,7 +88,7 @@ export function useRealtime(intervalMs = 3000) {
           kpis: {
             consumo:     rInt(80, 220),
             produccion:  rInt(400, 900),
-            stock:       rInt(300, 1200),
+            sobrante:    rInt(20, 180),
             eficiencia:  rand(75, 98),
             temperatura: rand(24, 44),
           },

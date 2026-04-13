@@ -49,7 +49,8 @@ export function generateFaults(tileStates) {
 export const initConsumo     = () => Array.from({ length: 24 }, () => rInt(80, 220));
 export const initProd        = () => Array.from({ length: 24 }, () => rInt(400, 900));
 export const initMeta        = () => Array.from({ length: 24 }, () => 700);
-export const initSobrante    = () => Array.from({ length: 7  }, () => rInt(300, 1200));
+/* Energía sobrante inyectable a la red — valores en kWh */
+export const initSobrante    = () => Array.from({ length: 7  }, () => rInt(20, 180));
 export const initFaultHist   = () => Array.from({ length: 30 }, () => rInt(0, 12));
 export const initThroughput  = () => Array.from({ length: 60 }, () => rInt(20, 80));
 export const initTempZones   = () => [0,1,2].map(() => Array.from({ length: 30 }, () => rand(22, 50)));
@@ -59,7 +60,7 @@ export const initPres        = () => Array.from({ length: 30 }, () => rand(995, 
 export const initKPIs = () => ({
   consumo:    rInt(80, 220),
   produccion: rInt(400, 900),
-  stock:      rInt(300, 1200),
+  sobrante:   rInt(20, 180),   /* kWh disponibles para inyectar a la red */
   eficiencia: rand(75, 98),
   temperatura: rand(24, 44),
 });
@@ -71,7 +72,7 @@ export const ALERT_POOL = [
   { type: 'critical', msg: 'Sensor desconectado en T0288 — Zona D' },
   { type: 'warning',  msg: 'Producción por debajo del 80% de meta — Línea 2' },
   { type: 'info',     msg: 'Backup de datos completado exitosamente' },
-  { type: 'warning',  msg: 'Sobrante supera umbral máximo — Depósito Norte' },
+  { type: 'warning',  msg: 'Energía sobrante supera umbral de inyección — revisar conexión a red' },
   { type: 'critical', msg: 'Presión anómala detectada — 3 baldosas afectadas' },
   { type: 'info',     msg: 'Firmware actualizado: módulos IoT v3.2.1' },
   { type: 'warning',  msg: 'Consumo energético +18% respecto a la hora anterior' },

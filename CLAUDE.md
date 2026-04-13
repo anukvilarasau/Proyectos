@@ -108,6 +108,12 @@ Agregar en `Overview.jsx` dentro del `.kpiGrid`:
 />
 ```
 
+## Conceptos de dominio importantes
+
+- **Sobrante / Energía → Red**: es la energía excedente generada por las baldosas que se inyecta a la red eléctrica para venta. Se mide **siempre en kWh**, nunca en unidades físicas. El KPI se llama `kpis.sobrante` y el array de chart es `charts.sobrante`.
+- **Consumo**: energía consumida por el sistema en kWh.
+- **Producción**: cantidad de baldosas fabricadas en unidades (u).
+
 ## Lo que NO hacer
 
 - No instalar librerías de componentes UI (MUI, Chakra, Ant Design, etc.)

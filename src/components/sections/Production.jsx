@@ -29,7 +29,7 @@ export default function Production({ charts }) {
     datasets: [
       { label: 'Producción', data: ZONES.map(() => rInt(60, 100)), borderColor: '#00ff80', backgroundColor: 'rgba(0,255,128,.08)', borderWidth: 2, pointBackgroundColor: '#00ff80' },
       { label: 'Consumo',    data: ZONES.map(() => rInt(40, 90)),  borderColor: '#7c4fff', backgroundColor: 'rgba(124,79,255,.08)', borderWidth: 2, pointBackgroundColor: '#7c4fff' },
-      { label: 'Sobrante',   data: ZONES.map(() => rInt(10, 50)),  borderColor: '#ffd600', backgroundColor: 'rgba(255,214,0,.06)',  borderWidth: 2, pointBackgroundColor: '#ffd600' },
+      { label: 'Energía → Red (kWh)', data: ZONES.map(() => rInt(10, 50)), borderColor: '#ffd600', backgroundColor: 'rgba(255,214,0,.06)', borderWidth: 2, pointBackgroundColor: '#ffd600' },
     ],
   };
 

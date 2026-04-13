@@ -4,15 +4,15 @@ import { HOURS } from '../../utils/mockData';
 import styles from './Alerts.module.css';
 
 const animation = { animation: false, responsive: true, maintainAspectRatio: false };
-const baseScale = { grid: { color: 'rgba(0,255,135,0.05)' }, ticks: { color: '#3a7058' } };
+const baseScale = { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#505070' } };
 
 const THRESHOLDS = [
-  { label: 'Temperatura Máxima', value: 50,   max: 100, unit: '°C',  color: '#ff3d6b' },
-  { label: 'Temperatura Mínima', value: 18,   max: 40,  unit: '°C',  color: '#00ffc8' },
-  { label: 'Humedad Máxima',     value: 80,   max: 100, unit: '%',   color: '#bf64ff' },
-  { label: 'Consumo Umbral',     value: 200,  max: 400, unit: 'kWh', color: '#f5c500' },
-  { label: 'Sobrante Máximo',    value: 1000, max: 2000,unit: 'u',   color: '#aaff3e' },
-  { label: 'OEE Mínimo',         value: 75,   max: 100, unit: '%',   color: '#00ff87' },
+  { label: 'Temperatura Máxima',      value: 50,  max: 100, unit: '°C',  color: '#ff3d6b' },
+  { label: 'Temperatura Mínima',      value: 18,  max: 40,  unit: '°C',  color: '#00e5b3' },
+  { label: 'Humedad Máxima',          value: 80,  max: 100, unit: '%',   color: '#7c4fff' },
+  { label: 'Consumo Umbral',          value: 200, max: 400, unit: 'kWh', color: '#ffd600' },
+  { label: 'Inyección Máx. a Red',    value: 150, max: 300, unit: 'kWh', color: '#aaff3e' },
+  { label: 'OEE Mínimo',              value: 75,  max: 100, unit: '%',   color: '#00ff80' },
 ];
 
 const TYPE_ICON = { critical: '🔴', warning: '🟡', info: '🟢' };

@@ -50,8 +50,8 @@ export default function Overview({ charts, kpis }) {
           delta="4.2% vs ayer" deltaUp color="purple" icon="⚡" sparkData={s(consumo)} />
         <KpiCard label="Producción Hoy" value={`${fmt(kpis.produccion)} u`}
           delta="7.1% vs ayer" deltaUp color="neon" icon="🏭" sparkData={s(prod)} />
-        <KpiCard label="Sobrante / Stock" value={`${fmt(kpis.stock)} u`}
-          delta="1.3% vs ayer" deltaUp={false} color="amber" icon="📦" sparkData={s(sobrante)} />
+        <KpiCard label="Energía → Red" value={`${kpis.sobrante} kWh`}
+          delta="disponibles para inyectar" deltaUp color="amber" icon="🔋" sparkData={s(sobrante)} />
         <KpiCard label="Baldosas c/ Falla" value={charts.faultHist.at(-1)}
           delta="2 nuevas hoy" deltaUp={false} color="red" icon="⚠️" sparkData={s(charts.faultHist)} />
         <KpiCard label="Eficiencia OEE" value={`${fmtDec(kpis.eficiencia)}%`}
@@ -106,13 +106,13 @@ export default function Overview({ charts, kpis }) {
 
       {/* ── Sobrante + Donut + OEE ── */}
       <div className={styles.row3}>
-        <Panel title="Sobrante Acumulado — 7 días" icon="📦">
+        <Panel title="Energía Sobrante → Red — 7 días" icon="🔋" headerRight="kWh">
           <div className={styles.chartWrap}>
             <Line
               data={{
                 labels: DAYS7,
                 datasets: [{
-                  label: 'Sobrante',
+                  label: 'kWh inyectados a red',
                   data: sobrante,
                   borderColor: '#ffd600',
                   backgroundColor: 'rgba(255,214,0,0.10)',
