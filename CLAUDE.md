@@ -110,9 +110,10 @@ Agregar en `Overview.jsx` dentro del `.kpiGrid`:
 
 ## Conceptos de dominio importantes
 
-- **Sobrante / Energía → Red**: es la energía excedente generada por las baldosas que se inyecta a la red eléctrica para venta. Se mide **siempre en kWh**, nunca en unidades físicas. El KPI se llama `kpis.sobrante` y el array de chart es `charts.sobrante`.
-- **Consumo**: energía consumida por el sistema en kWh.
-- **Producción**: cantidad de baldosas fabricadas en unidades (u).
+- **Generación / Producción**: energía generada por las baldosas piezoeléctrica al ser pisadas. Se mide en **kWh** (totales del día) o **W** (potencia instantánea). KPI: `kpis.produccion`, chart: `charts.prod` (kWh/h), `charts.throughput` (W).
+- **Consumo**: energía consumida por el sistema de baldosas en **kWh**. KPI: `kpis.consumo`.
+- **Excedente / Energía → Red**: energía sobrante que se inyecta a la red eléctrica para venta. Se mide en **kWh**. KPI: `kpis.sobrante`, chart: `charts.sobrante`.
+- **Nunca usar unidades físicas (u)** para ninguno de estos tres conceptos — todos son energéticos.
 
 ## Lo que NO hacer
 

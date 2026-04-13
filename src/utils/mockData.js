@@ -47,19 +47,19 @@ export function generateFaults(tileStates) {
 
 /* ── Initial chart data arrays ── */
 export const initConsumo     = () => Array.from({ length: 24 }, () => rInt(80, 220));
-export const initProd        = () => Array.from({ length: 24 }, () => rInt(400, 900));
-export const initMeta        = () => Array.from({ length: 24 }, () => 700);
+export const initProd        = () => Array.from({ length: 24 }, () => rInt(2, 15));   /* kWh generados por hora */
+export const initMeta        = () => Array.from({ length: 24 }, () => 10);             /* meta: 10 kWh/h */
 /* Energía sobrante inyectable a la red — valores en kWh */
 export const initSobrante    = () => Array.from({ length: 7  }, () => rInt(20, 180));
 export const initFaultHist   = () => Array.from({ length: 30 }, () => rInt(0, 12));
-export const initThroughput  = () => Array.from({ length: 60 }, () => rInt(20, 80));
+export const initThroughput  = () => Array.from({ length: 60 }, () => rInt(5, 45));   /* W — potencia generada en tiempo real */
 export const initTempZones   = () => [0,1,2].map(() => Array.from({ length: 30 }, () => rand(22, 50)));
 export const initHum         = () => Array.from({ length: 30 }, () => rand(40, 75));
 export const initPres        = () => Array.from({ length: 30 }, () => rand(995, 1025));
 
 export const initKPIs = () => ({
   consumo:    rInt(80, 220),
-  produccion: rInt(400, 900),
+  produccion: rInt(50, 200),   /* kWh generados hoy en total */
   sobrante:   rInt(20, 180),   /* kWh disponibles para inyectar a la red */
   eficiencia: rand(75, 98),
   temperatura: rand(24, 44),

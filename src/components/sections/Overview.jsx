@@ -48,7 +48,7 @@ export default function Overview({ charts, kpis }) {
       <div className={styles.kpiGrid}>
         <KpiCard label="Consumo Energético" value={`${kpis.consumo} kWh`}
           delta="4.2% vs ayer" deltaUp color="purple" icon="⚡" sparkData={s(consumo)} />
-        <KpiCard label="Producción Hoy" value={`${fmt(kpis.produccion)} u`}
+        <KpiCard label="Energía Generada" value={`${kpis.produccion} kWh`}
           delta="7.1% vs ayer" deltaUp color="neon" icon="🏭" sparkData={s(prod)} />
         <KpiCard label="Energía → Red" value={`${kpis.sobrante} kWh`}
           delta="disponibles para inyectar" deltaUp color="amber" icon="🔋" sparkData={s(sobrante)} />
@@ -82,7 +82,7 @@ export default function Overview({ charts, kpis }) {
           </div>
         </Panel>
 
-        <Panel title="Producción vs Meta" icon="🏭" headerRight="unidades">
+        <Panel title="Energía Generada vs Meta" icon="⚡" headerRight="kWh/h">
           <div className={styles.chartWrap}>
             <Bar
               data={{

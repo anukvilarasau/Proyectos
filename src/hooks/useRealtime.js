@@ -61,8 +61,8 @@ export function useRealtime(intervalMs = 3000) {
         const push = (arr, val) => [...arr.slice(1), val];
 
         const nextConsumo    = push(prev.charts.consumo, rInt(80, 220));
-        const nextProd       = push(prev.charts.prod, rInt(400, 900));
-        const nextThroughput = push(prev.charts.throughput, rInt(20, 80));
+        const nextProd       = push(prev.charts.prod, rInt(2, 15));
+        const nextThroughput = push(prev.charts.throughput, rInt(5, 45));
         const nextHum        = push(prev.charts.hum, rand(40, 75));
         const nextPres       = push(prev.charts.pres, rand(995, 1025));
         const nextTempZones  = prev.charts.tempZones.map(arr => push(arr, rand(22, 50)));
@@ -87,7 +87,7 @@ export function useRealtime(intervalMs = 3000) {
           ...prev,
           kpis: {
             consumo:     rInt(80, 220),
-            produccion:  rInt(400, 900),
+            produccion:  rInt(50, 200),
             sobrante:    rInt(20, 180),
             eficiencia:  rand(75, 98),
             temperatura: rand(24, 44),
